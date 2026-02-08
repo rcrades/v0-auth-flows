@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Thumbnail } from "@/components/marketing/thumbnail"
+import { ThumbnailSmoke } from "@/components/marketing/thumbnail-smoke"
 
 export default function ThumbnailsPage() {
   return (
@@ -36,6 +37,30 @@ export default function ThumbnailsPage() {
                     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                       <div style={{ transform: "scale(0.5)", transformOrigin: "center center" }}>
                         <Thumbnail />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Smoke variant */}
+        <section className="space-y-4 mt-12">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Thumbnail -- Smoke Variant</h2>
+              <p className="text-sm text-muted-foreground mt-1">1200 x 630 -- AUTH FLOWS with smoke effect and larger UI elements</p>
+            </div>
+          </div>
+          <div className="rounded-lg border border-border overflow-hidden bg-card">
+            <div className="w-full overflow-x-auto">
+              <div className="min-w-[600px]" style={{ aspectRatio: "1200/630" }}>
+                <div className="w-full h-full" style={{ transform: "scale(1)", transformOrigin: "top left" }}>
+                  <div className="relative" style={{ width: "100%", paddingBottom: "52.5%" }}>
+                    <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                      <div style={{ transform: "scale(0.5)", transformOrigin: "center center" }}>
+                        <ThumbnailSmoke />
                       </div>
                     </div>
                   </div>
