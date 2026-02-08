@@ -15,7 +15,6 @@ export default function LoginPage() {
   const router = useRouter()
   const [isLoading, setIsLoading] = React.useState(false)
   const [errors, setErrors] = React.useState<Record<string, string>>({})
-  const [formError, setFormError] = React.useState("")
   
   const errorSummaryRef = React.useRef<HTMLDivElement>(null)
 
@@ -24,7 +23,6 @@ export default function LoginPage() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setErrors({})
-    setFormError("")
     setIsLoading(true)
 
     const formData = new FormData(e.currentTarget)
@@ -77,7 +75,7 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {(errorList.length > 0 || formError) && (
+      {errorList.length > 0 && (
         <div
           ref={errorSummaryRef}
           tabIndex={-1}
@@ -88,29 +86,21 @@ export default function LoginPage() {
           <div className="flex gap-3">
             <AlertCircle className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
             <div className="space-y-1">
-              {formError ? (
-                <p id="error-summary-title" className="font-medium text-destructive">
-                  {formError}
-                </p>
-              ) : (
-                <>
-                  <p id="error-summary-title" className="font-medium text-destructive">
-                    Please fix the following errors:
-                  </p>
-                  <ul className="text-sm text-destructive/90 space-y-1">
-                    {errorList.map(([field, message]) => (
-                      <li key={field}>
-                        <a 
-                          href={`#${field}`}
-                          className="underline underline-offset-2 hover:text-destructive"
-                        >
-                          {message}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
+              <p id="error-summary-title" className="font-medium text-destructive">
+                Please fix the following errors:
+              </p>
+              <ul className="text-sm text-destructive/90 space-y-1">
+                {errorList.map(([field, message]) => (
+                  <li key={field}>
+                    <a 
+                      href={`#${field}`}
+                      className="underline underline-offset-2 hover:text-destructive"
+                    >
+                      {message}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
