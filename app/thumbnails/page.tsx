@@ -52,6 +52,9 @@ export default function ThumbnailsPage() {
               <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Thumbnail -- Smoke Variant</h2>
               <p className="text-sm text-muted-foreground mt-1">1200 x 630 -- AUTH FLOWS with smoke effect and larger UI elements</p>
             </div>
+            <Button asChild variant="outline" size="sm" className="bg-transparent">
+              <Link href="/thumbnail-smoke">View full size</Link>
+            </Button>
           </div>
           <div className="rounded-lg border border-border overflow-hidden bg-card">
             <div className="w-full overflow-x-auto">
